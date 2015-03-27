@@ -1,5 +1,5 @@
 ---
-title: How to remove extra button spacing/padding in Firefox
+title: How To Remove Extra Button Spacing/Padding in Firefox
 date: 2015-03-20 21:21 UTC
 tags: dev, front-end
 layout: post
