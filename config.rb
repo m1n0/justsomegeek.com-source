@@ -31,7 +31,7 @@ end
 
 set :casper, {
   blog: {
-    url: 'http://www.example.com',
+    url: 'http://justsomegeek.com',
     name: 'Just Some Geek',
     description: 'Yet another geeky blog...',
     date_format: '%d %B %Y',
@@ -63,6 +63,15 @@ ready do
   end
 
   proxy "/author/#{blog_author.name.parameterize}.html", '/author.html', ignore: true
+end
+
+
+activate :google_analytics do |ga|
+  ga.tracking_id = 'UA-61271241-1' # Replace with your property ID.
+end
+
+activate :disqus do |d|
+  d.shortname = 'm1n0blog' # Replace with your Disqus shortname.
 end
 
 ###
@@ -145,4 +154,5 @@ configure :build do
 
   # Or use a different image path
   # set :http_prefix, "/Content/images/"
+  set :build_dir, '../blog-build'
 end

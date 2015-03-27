@@ -19,3 +19,7 @@ gem 'sanitize', '~> 3.1.2'
 
 # Deployment
 gem 'middleman-gh-pages'
+
+gem "middleman-google-analytics"
+
+gem "middleman-disqus"
