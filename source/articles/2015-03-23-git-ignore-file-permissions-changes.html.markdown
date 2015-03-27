@@ -1,6 +1,6 @@
 ---
 title: Git - Ignore File Permissions Changes
-date: 2015-03-27 21:07 UTC
+date: 2015-03-23 21:07 UTC
 tags: dev
 layout: post
 ---
