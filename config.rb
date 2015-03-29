@@ -155,4 +155,9 @@ configure :build do
   # Or use a different image path
   # set :http_prefix, "/Content/images/"
   set :build_dir, '../blog-build'
+
+  activate :robots, :rules => [
+    {:user_agent => '*', :allow => %w(/)}
+  ],
+  :sitemap => "http://justsomegeek.com/sitemap.xml"
 end

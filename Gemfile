@@ -23,3 +23,5 @@ gem 'middleman-gh-pages'
 gem "middleman-google-analytics"
 
 gem "middleman-disqus"
+
+gem 'middleman-robots'
