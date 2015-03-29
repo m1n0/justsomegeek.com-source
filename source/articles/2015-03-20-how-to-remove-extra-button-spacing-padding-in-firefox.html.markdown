@@ -7,7 +7,7 @@ layout: post
 
 It usually is Internet Explorer that makes the life of a web developer hard, but this time I stumbled upon an issue
 when Mozilla Firefox added unexpected padding to my html buttons. After short research I found a simple solution to fix
-this odd behavior:
+this odd behaviour:
 
 ```
 button::-moz-focus-inner {
