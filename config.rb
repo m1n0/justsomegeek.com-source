@@ -14,7 +14,7 @@ activate :blog do |blog|
   blog.taglink = "tag/{tag}.html"
   # blog.layout = "layout"
   # blog.summary_separator = /(READMORE)/
-  blog.summary_length = 160
+  blog.summary_length = 156
   # blog.year_link = "{year}.html"
   # blog.month_link = "{year}/{month}.html"
   # blog.day_link = "{year}/{month}/{day}.html"
