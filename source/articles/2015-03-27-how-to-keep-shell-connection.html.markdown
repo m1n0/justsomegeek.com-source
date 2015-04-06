@@ -1,7 +1,7 @@
 ---
-title: How to Keep Shell Connection
+title: How-to&#58; Keep Shell Connection
 date: 2015-03-27 21:14 UTC
-tags: dev
+tags: dev, how-to
 layout: post
 ---
 

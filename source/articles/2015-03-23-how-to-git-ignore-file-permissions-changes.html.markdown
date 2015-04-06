@@ -1,7 +1,7 @@
 ---
-title: Git - Ignore File Permissions Changes
+title: How-to&#58; Git - Ignore File Permissions Changes
 date: 2015-03-23 21:07 UTC
-tags: dev
+tags: dev, how-to
 layout: post
 ---
 
