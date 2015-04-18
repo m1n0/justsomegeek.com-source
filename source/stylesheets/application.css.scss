@@ -7,3 +7,11 @@ pre {
   border-style: none;
   padding: initial;
 }
+
+td.gutter {
+  display: none;
+}
+
+.code pre {
+  white-space: pre-wrap;
+}
