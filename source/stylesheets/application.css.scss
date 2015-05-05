@@ -1,6 +1,7 @@
 @import 'vendor/casper';
 @import 'syntax';
 
+
 // Overwrite some styles from casper.css
 pre {
   background: transparent;
@@ -14,4 +15,29 @@ td.gutter {
 
 .code pre {
   white-space: pre-wrap;
+}
+
+#data > div {
+  width: 48%;
+  float: left;
+}
+
+#data #take-1 {
+  margin-right: 2%;
+}
+
+#data {
+  font-size: 0.8em;
+}
+
+.clearfix:before,
+.clearfix:after {
+  content:"";
+  display:table;
+}
+.clearfix:after {
+  clear:both;
+}
+.clearfix {
+  zoom:1; /* For IE 6/7 (trigger hasLayout) */
 }
