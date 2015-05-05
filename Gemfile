@@ -25,3 +25,5 @@ gem "middleman-google-analytics"
 gem "middleman-disqus"
 
 gem 'middleman-robots'
+
+gem "jquery-middleman"
