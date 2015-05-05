@@ -8,10 +8,10 @@ layout: post
 It happens too often that I get disconnected from a shell connection after a while of inactivity with message `Write failed: Broken pipe`.
 To prevent this, simply put:
 
-```
+~~~
 Host *
     ServerAliveInterval 30
-```
+~~~
 
 in your `~/.ssh/config` (OS X) or `/etc/ssh/ssh_config` (Linux) file.
 

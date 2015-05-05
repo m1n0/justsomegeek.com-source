@@ -9,9 +9,9 @@ It can get really annoying when `git status` reports changes in files which are 
 
 Run this command in your terminal/shell inside a project to get rid of this:
 
-```
+~~~
 $ git config core.fileMode false
-```
+~~~
 
 It is possible to turn this feature back by running the same command with `true` parameter instead.
 

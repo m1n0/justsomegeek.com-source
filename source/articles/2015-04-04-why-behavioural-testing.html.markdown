@@ -11,11 +11,11 @@ There seems to be a lot of buzz around Behavioural testing in recent years. Here
     Behavioural tests **combine** the two traditional **Black-box and White-box** approaches to testing into a hybrid Grey-box approach.
 
     >*White-box testing* is a method of testing software that tests internal structures or workings of an application, as opposed to its functionality.
-    <sup>[[1]] (#references)</sup>
+    <sup>[[1]](#references)</sup>
 
     This often aims for **"code coverage"** - covering the inner workings of software by checking the code, e.g. Unit testing.
 
-    >*Black-box testing* - to use this method, view the program as a black box. Your goal is to be completely unconcerned about the internal behaviour and structure of the program. Instead, concentrate on finding circumstances in which the program does not behave according to its specifications.<sup>[[2]] (#references)</sup>
+    >*Black-box testing* - to use this method, view the program as a black box. Your goal is to be completely unconcerned about the internal behaviour and structure of the program. Instead, concentrate on finding circumstances in which the program does not behave according to its specifications.<sup>[[2]](#references)</sup>
 
     The aim here is more towards the functionality, therefore **"test coverage"** is pursued, covering use cases/user stories...
 
@@ -30,26 +30,24 @@ There seems to be a lot of buzz around Behavioural testing in recent years. Here
     written in "real" code.  
     Example:
 
-    ````
-    Feature: ls
-    In order to see the directory structure
-    As a UNIX user
-    I need to be able to list the current directory's contents
+        Feature: ls
+        In order to see the directory structure
+        As a UNIX user
+        I need to be able to list the current directory's contents
 
-    Scenario:
-      Given I am in a directory "test"
-      And I have a file named "foo"
-      And I have a file named "bar"
-      When I run "ls"
-      Then I should get:
-        """
-        bar
-        foo
-        """
-      ````
+        Scenario:
+          Given I am in a directory "test"
+          And I have a file named "foo"
+          And I have a file named "bar"
+          When I run "ls"
+          Then I should get:
+            """
+            bar
+            foo
+            """
 
 3. **Testing on multiple levels**  
-    Traditionally, there are 3 basic levels of testing: <sup>[[3]] (#references)</sup>
+    Traditionally, there are 3 basic levels of testing: <sup>[[3]](#references)</sup>
     * Unit testing - Unit testing verifies the functioning in isolation of software elements that are separately testable
     * Integration testing - Integration testing is the process of verifying the interactions among software components
     * System testing - System testing is concerned with testing the behaviour of an entire system
