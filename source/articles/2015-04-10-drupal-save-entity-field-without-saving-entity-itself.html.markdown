@@ -73,7 +73,7 @@ Therefore, if using `field_attach_update()` suits your situation and needs, I sa
 
 <div id="data-wrapper" class="clearfix">
 For anyone curious about the exact numbers for each run, [here is the whole "data-set"](#).
-  <div id="data">
+  <div id="data" style="display: none">
   <div id="take-1">  
 
   |     Run | Time            |
