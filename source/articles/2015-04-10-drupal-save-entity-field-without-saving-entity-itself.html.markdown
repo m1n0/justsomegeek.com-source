@@ -88,7 +88,7 @@ For anyone curious about the exact numbers for each run, [here is the whole "dat
   | 8       | 0,0479199886322 |
   | 9       | 0,0477869510651 |
   | 10      | 0,0495500564575 |
-  | **Average** | **0,0534861564636** |
+  | **Take 1 Average** | **0,0534861564636** |
 
   </div>
 
@@ -106,7 +106,7 @@ For anyone curious about the exact numbers for each run, [here is the whole "dat
   | 8       | 0,0349240303040 |
   | 9       | 0,0325751304626 |
   | 10      | 0,0325720310211 |
-  | **Average** | **0,0348172426224** |
+  | **Take 2 Average** | **0,0348172426224** |
 
   </div>
   </div>
