@@ -120,8 +120,8 @@ activate :directory_indexes
 
 # Middleman-Syntax - https://github.com/middleman/middleman-syntax
 set :haml, { ugly: true }
-set :markdown_engine, :redcarpet
-set :markdown, fenced_code_blocks: true, smartypants: true
+set :markdown_engine, :kramdown
+set :markdown, fenced_code_blocks: true, smartypants: true, parse_block_html: true
 activate :syntax, line_numbers: true
 
 # Methods defined in the helpers block are available in templates
