@@ -13,7 +13,7 @@ Many sites and distributions built on Drupal make use of [Features](https://www.
 I created a simple module, [Features Package Settings](https://www.drupal.org/project/features_package_settings) which allows you to **reorder all features packages** so that they appear in desired order - **this changes the order in which the features State is being checked**, so your custom features can get checked first.  
 Furthermore, it allows to **disable state checking** for packages which you are not so much interested in being checked (be cautios with this, you should check all your features periodically).
 
-There is another tweak you can use to make the Manage Features page considerably snappier - [use my patch to Features](https://www.drupal.org/node/2466975) which allows for **intelligent caching of the Manage Features list**, making it render much faster.
+There is another tweak you can use to make the Manage Features page considerably snappier - [use my patch to Features](https://www.drupal.org/node/2466975) which allows for simple **caching of the Manage Features list**, making it render much faster.
 
 If you like this, or have any ideas how to improve these efforts, please contribute to the issue queue with a supporting comment so that everyone can get this without patching. I also started an [issue on integrating the Features Package Settings into Features](https://www.drupal.org/node/2471961) so that such behaviour is shipped directly with the Features module.
 
