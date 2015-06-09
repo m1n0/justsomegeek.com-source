@@ -29,12 +29,9 @@ $node_wrapper = new EntityDrupalWrapper('node', $node);
 ~~~
 
 **Result:**
-![](http://res.cloudinary.com/m1n0/image/upload/v1433797361/EntityDrupalWrapper_code-completion_foimsc.png)
+![](http://res.cloudinary.com/m1n0/image/upload/v1433835111/EntityDrupalWrapper_code-completion_tuhmpc.png)
 
 This unfortunately adds auto-complete for the basic methods only, you still need to type your field names manually.
 
 **Important:**  
 Use this only when you know what you are doing and when you are sure that `entity_metadata_wrapper()` would return `EntityDrupalWrapper` anyway - this only happens when you pass a valid entity type like `node` or `user` as the first parameter.
-
-
-
