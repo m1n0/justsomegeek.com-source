@@ -5,6 +5,7 @@ tags: drupal, performance, dev
 layout: post
 renderer_options:
   tables: true
+published: false
 ---
 
 Performance and Drupal is a wide topic to cover, but there are some general things you can look at when having performance issues with your site. I will try to cover the most basic aspects to think about which I used on different project.
