@@ -7,8 +7,10 @@ per_page: 6
   %nav.main-nav.overlay.clearfix
     - if blog_settings.logo.present?
       %a.blog-logo{href: home_path}
-        = image_tag blog_settings.logo, alt: 'Blog Logo'
-    %a.subscribe-button.icon-feed{href: feed_path} Subscribe
+        = image_tag blog_settings.logo, alt: blog_settings.name
+    - if blog_settings.navigation
+      %a.menu-button.icon-menu{href: '#'}
+        %span.word Menu
   .vertical
     .main-header-content.inner
       %h1.page-title= blog_settings.name
@@ -17,4 +19,5 @@ per_page: 6
     %span.hidden Scroll Down
 
 %main#content.content{role: :main}
-  = partial(:page_articles)
+  = partial(:page_articles,
+            locals: { page_articles: page_articles, paginate: paginate })
