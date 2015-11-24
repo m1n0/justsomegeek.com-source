@@ -11,6 +11,7 @@ per_page: 6
     - if blog_settings.navigation
       %a.menu-button.icon-menu{href: '#'}
         %span.word Menu
+    %a.subscribe-button.icon-feed{href: feed_path} Subscribe
   .vertical
     .main-header-content.inner
       %h1.page-title= blog_settings.name
