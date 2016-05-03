@@ -1,0 +1,79 @@
+<p>There seems to be a lot of buzz around Behavioural testing in recent years. Here is a couple of thoughts from my side why could this be happening:</p>
+
+<ol>
+  <li>
+    <p><strong>Grey-box testing</strong><br />
+ Behavioural tests <strong>combine</strong> the two traditional <strong>Black-box and White-box</strong> approaches to testing into a hybrid Grey-box approach.</p>
+
+    <blockquote>
+      <p><em>White-box testing</em> is a method of testing software that tests internal structures or workings of an application, as opposed to its functionality.
+ <sup><a href="#references">[1]</a></sup></p>
+    </blockquote>
+
+    <p>This often aims for <strong>“code coverage”</strong> - covering the inner workings of software by checking the code, e.g. Unit testing.</p>
+
+    <blockquote>
+      <p><em>Black-box testing</em> - to use this method, view the program as a black box. Your goal is to be completely unconcerned about the internal behaviour and structure of the program. Instead, concentrate on finding circumstances in which the program does not behave according to its specifications.<sup><a href="#references">[2]</a></sup></p>
+    </blockquote>
+
+    <p>The aim here is more towards the functionality, therefore <strong>“test coverage”</strong> is pursued, covering use cases/user stories…</p>
+
+    <p>I find the power of Behavioural testing in combining these two - the test scenarios usually test on the system level -
+ clicking links, filling in forms etc., ignoring what is happening in the background. On the other hand, it is easily
+ possible to check specific logic of software by extending tests with custom step definitions, making single scenario
+ doing both White- and Black-box testing at once, potentially saving some time spent on writing test cases.</p>
+  </li>
+  <li>
+    <p><strong>Test case format</strong><br />
+ Behavioural test scenarios are much easier to write than e.g. a unit test, making it much easier for technically less experienced
+ people to write and maintain tests. While stating that, it must not be forgotten that the custom step definitions are
+ written in “real” code.<br />
+ Example:</p>
+
+    <pre><code> Feature: ls
+ In order to see the directory structure
+ As a UNIX user
+ I need to be able to list the current directory's contents
+
+ Scenario:
+   Given I am in a directory "test"
+   And I have a file named "foo"
+   And I have a file named "bar"
+   When I run "ls"
+   Then I should get:
+     """
+     bar
+     foo
+     """
+</code></pre>
+  </li>
+  <li>
+    <p><strong>Testing on multiple levels</strong><br />
+ Traditionally, there are 3 basic levels of testing: <sup><a href="#references">[3]</a></sup></p>
+    <ul>
+      <li>Unit testing - Unit testing verifies the functioning in isolation of software elements that are separately testable</li>
+      <li>Integration testing - Integration testing is the process of verifying the interactions among software components</li>
+      <li>System testing - System testing is concerned with testing the behaviour of an entire system</li>
+    </ul>
+
+    <p>This does not mean that one test scenario should be testing on all of these at once - it just means that Behavioural test
+ scenarios are capable of both testing the code on the unit level and testing GUI with JS interactions on a web front-end. This makes
+ it much easier to do required testing as one tool can be used for several targets of tests, saving training and other resources.</p>
+  </li>
+</ol>
+
+<p>I believe that these aspects are part of the key reasons why Behavioural testing is so popular and they help with the
+shift of mind-set of testing to be concerned about “code quality” and other technicalities to be more concerned about “software quality” and the
+overall output of development.</p>
+
+<p>While all this is nice and dandy, I still believe all kinds of test types are necessary to comprehensively test software,
+I simply do not believe in “here’s a new testing approach that will solve all our problems”, so <strong>we always have to assess
+the specific project needs and constraints to make good decisions.</strong></p>
+
+<hr />
+<p><a name="references"></a>
+References:<br />
+<em><small>[1] Williams, Laurie. “White-Box Testing”, available online at: <a href="http://www.chaudhary.org/WhiteBox.pdf">http://www.chaudhary.org/WhiteBox.pdf</a></small></em><br />
+<em><small>[2] Myers, G., Badgett, T. &amp; Sandler, C., 2012. “The Art of Software Testing”. 3rd ed. New Jersey: John Wiley &amp; Sons, Inc.</small></em><br />
+<em><small>[3] IEEE, 2014. SWEBOK. 3rd ed. Piscataway.</small></em></p>
+

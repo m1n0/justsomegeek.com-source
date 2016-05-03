@@ -1,0 +1,101 @@
+<p>Drupal provides API for saving entities such as <code>node_save()</code> or <code>user_save()</code>. Functions like this update the whole provided entity, using up a lot of resources. There are scenarios when only one or two  fields need to be updated, e.g. a bulk operation. For such cases, <code>field_attach_update()</code> can be used.
+I found inspiration on this topic on <a href="https://www.urbaninsight.com/2011/10/24/saving-nodes-fields-without-saving-node-itself">Urban Insight blog by Ki Kim</a> and wanted to try it out in practice.
+Example:</p>
+
+<pre><code class="language-php">&lt;?php
+$node = node_load($nid);
+$node-&gt;field_fieldname[LANGUAGE_NONE][0]['value'] = 'some value';
+field_attach_update('node', $node);
+entity_get_controller('node')-&gt;resetCache(array($node-&gt;nid));
+?&gt;
+</code></pre>
+
+<p>It is important to note that this might not trigger the same behaviour as “normal” entity save does, e.g. Rules may not trigger etc. Therefore, <strong>use this with caution</strong> and only when you know what you are doing. Furthermore, <a href="https://api.drupal.org/api/drupal/modules%21field%21field.attach.inc/function/field_attach_update/7">Drupal documentation</a> mentions that caches for the saved entity need to be manually flushed after saving one specific field (see the last line of the code example).</p>
+
+<h2 id="testing">Testing</h2>
+<p>I was curious about the <strong>performance implications</strong> of this, so I did a small test, running on my local machine, on almost clean Drupal. I ran these tests simply in the Devel Execute PHP Code page, with no change of the setup in between test runs. Ten rounds were done for each variant to get the average run time.</p>
+
+<p><strong>Take 1</strong><br />
+“Standard” Drupal API:</p>
+
+<pre><code class="language-php">&lt;?php
+$start = microtime(true);
+
+$node = node_load(1);
+$node-&gt;field_my_field[LANGUAGE_NONE][0]['value'] = 'Testing stuff 1';
+node_save($node);
+
+print(microtime(true) - $start);
+?&gt;
+</code></pre>
+
+<p>Average run time: <strong>0,0534861564636s</strong></p>
+
+<p><strong>Take 2</strong><br />
+Using <code>field_attach_update()</code>:</p>
+
+<pre><code class="language-php">&lt;?php
+$start = microtime(true);
+
+$node = node_load(1);
+$node-&gt;field_my_field[LANGUAGE_NONE][0]['value'] = 'Testing stuff 2';
+field_attach_update('node', $node);
+entity_get_controller('node')-&gt;resetCache(array($node-&gt;nid));
+
+print(microtime(true) - $start);
+?&gt;
+</code></pre>
+
+<p>Average run time: <strong>0,0348172426224s</strong></p>
+
+<h2 id="results">Results</h2>
+
+<p>It seems that using <code>field_attach_update()</code> may lead to significant performance gains, in my case the average run time was <strong>35% faster</strong> than when using <code>node_save()</code>. This performance gain will differ significantly in different scenarios - amount of concurrent users, server setup, entity complexity (like number of fields) and other factors will have influence on this. Nevertheless, a chance for an improvement like this should always be explored.</p>
+
+<p>Additionally, <strong>concurrency</strong> issues can be addressed with this approach. While <code>node_save()</code> updates whole bunch of records across multiple tables, <code>field_attach_update()</code> updates the required field table only, preventing <strong>deadlocks</strong> to happen.</p>
+
+<p>Therefore, if using <code>field_attach_update()</code> suits your situation and needs, I say go for it!</p>
+
+<hr />
+
+<div id="data-wrapper" class="clearfix">
+For anyone curious about the exact numbers for each run, [here is the whole "data-set"](#).
+  <div id="data" style="display: none">
+  <div id="take-1">  
+
+  |     Run | Time            |
+  |--------:|-----------------|
+  | 1       | 0,0886168479919 |
+  | 2       | 0,0466141700745 |
+  | 3       | 0,0515279769897 |
+  | 4       | 0,0519001483917 |
+  | 5       | 0,0480201244354 |
+  | 6       | 0,0492122173309 |
+  | 7       | 0,0537130832672 |
+  | 8       | 0,0479199886322 |
+  | 9       | 0,0477869510651 |
+  | 10      | 0,0495500564575 |
+  | **Take 1 Average** | **0,0534861564636** |
+
+  </div>
+
+  <div id="take-2">  
+
+  |     Run | Time            |
+  |--------:|-----------------|
+  | 1       | 0,0256879329681 |
+  | 2       | 0,0329999923706 |
+  | 3       | 0,0359990596771 |
+  | 4       | 0,0301089286804 |
+  | 5       | 0,0587899684906 |
+  | 6       | 0,0330111980438 |
+  | 7       | 0,0315041542053 |
+  | 8       | 0,0349240303040 |
+  | 9       | 0,0325751304626 |
+  | 10      | 0,0325720310211 |
+  | **Take 2 Average** | **0,0348172426224** |
+
+  </div>
+  </div>
+</div>
+

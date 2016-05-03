@@ -1,0 +1,26 @@
+<p>Using <code>entity_metadata_wrapper()</code> from the <a href="https://www.drupal.org/project/entity">Entity API</a> module has a <strong>lot of advantages</strong> discussed all over the internet, but it has been bugging me for quite some time that the wonderful switch from array structures to OOP has not solved one of the obvious <strong>problems - no auto-completing code</strong> in the editor.</p>
+
+<p>A very quick glance into the <code>entity_metadata_wrapper()</code> function showed me that this can be <strong>easily solved</strong> (at least partially) - with <code>EntityDrupalWrapper</code>.<br />
+The thing is, that <code>entity_metadata_wrapper()</code> returns an object based on provided arguments.<br />
+The “old” way:</p>
+
+<pre><code class="language-php">&lt;?php
+$node_wrapper = entity_metadata_wrapper('node', $node);
+?&gt;
+</code></pre>
+
+<p>Since <code>entity_metadata_wrapper()</code> can return different object types, your IDE cannot determine which one actually gets returned and therefore does not provide proper auto-completing. If <code>EntityDrupalWrapper</code> is used directly, this problem goes away and you can enjoy at least some basic auto-completing of methods.<br />
+The <code>EntityDrupalWrapper</code> way:</p>
+
+<pre><code class="language-php">&lt;?php
+$node_wrapper = new EntityDrupalWrapper('node', $node);
+?&gt;
+</code></pre>
+
+<p><strong>Result:</strong>
+<img src="http://res.cloudinary.com/m1n0/image/upload/v1433835111/EntityDrupalWrapper_code-completion_tuhmpc.png" alt="" /></p>
+
+<p>This unfortunately adds auto-complete for the basic methods only, you still need to type your field names manually.</p>
+
+<p><strong>Important:</strong><br />
+Use this only when you know what you are doing and when you are sure that <code>entity_metadata_wrapper()</code> would return <code>EntityDrupalWrapper</code> anyway - this only happens when you pass a valid entity type like <code>node</code> or <code>user</code> as the first parameter.</p>

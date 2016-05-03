@@ -1,0 +1,9 @@
+<p>It can get really annoying when <code>git status</code> reports changes in files which are not really changed, just some file permissions have been modified. In most cases, this does not need to be reflected in the version control and can be safely ignored.</p>
+
+<p>Run this command in your terminal/shell inside a project to get rid of this:</p>
+
+<pre><code>$ git config core.fileMode false
+</code></pre>
+
+<p>It is possible to turn this feature back by running the same command with <code>true</code> parameter instead.</p>
+

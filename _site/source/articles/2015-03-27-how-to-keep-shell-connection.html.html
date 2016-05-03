@@ -1,0 +1,10 @@
+<p>It happens too often that I get disconnected from a shell connection after a while of inactivity with message <code>Write failed: Broken pipe</code>.
+To prevent this, simply put:</p>
+
+<pre><code>Host *
+    ServerAliveInterval 30
+</code></pre>
+
+<p>in your <code>~/.ssh/config</code> (OS X) or <code>/etc/ssh/ssh_config</code> (Linux) file.</p>
+
+<p>This will make sure that null packet will be sent every 30 seconds (you can edit the interval) to the server to keep the connection alive.</p>

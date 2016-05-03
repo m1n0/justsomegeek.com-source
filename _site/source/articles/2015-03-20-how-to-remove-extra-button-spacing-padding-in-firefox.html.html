@@ -1,0 +1,9 @@
+<p>It usually is Internet Explorer that makes the life of a web developer hard, but this time I stumbled upon an issue
+when Mozilla Firefox added unexpected padding to my html buttons. After short research I found a simple solution to fix
+this odd behaviour:</p>
+
+<pre><code>button::-moz-focus-inner {
+    padding: 0;
+    border: 0
+}
+</code></pre>

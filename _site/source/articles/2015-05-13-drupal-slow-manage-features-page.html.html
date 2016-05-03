@@ -1,0 +1,24 @@
+<p>Many sites and distributions built on Drupal make use of <a href="https://www.drupal.org/project/features">Features</a>. It often happens that having a big number of features on a site makes the Manage Features administration page unbearably slow. I experienced this on one of my recent projects built on <a href="http://openatrium.com">Open Atrium</a>, so I decided to fix this.</p>
+
+<p><strong>The Solution</strong><br />
+I created a simple module, <a href="https://www.drupal.org/project/features_package_settings">Features Package Settings</a> which allows you to <strong>reorder all features packages</strong> so that they appear in desired order - <strong>this changes the order in which the features State is being checked</strong>, so your custom features can get checked first.<br />
+Furthermore, it allows to <strong>disable state checking</strong> for packages which you are not so much interested in being checked (be cautios with this, you should check all your features periodically).</p>
+
+<p>There is another tweak you can use to make the Manage Features page considerably snappier - <a href="https://www.drupal.org/node/2466975">use my patch to Features</a> which allows for simple <strong>caching of the Manage Features list</strong>, making it render much faster.</p>
+
+<p>If you like this, or have any ideas how to improve these efforts, please contribute to the issue queue with a supporting comment so that everyone can get this without patching. I also started an <a href="https://www.drupal.org/node/2471961">issue on integrating the Features Package Settings into Features</a> so that such behaviour is shipped directly with the Features module.</p>
+
+<h3 id="tldr">tl;dr:</h3>
+<p>Slow Manage Features page? Use this:</p>
+
+<ul>
+  <li><a href="https://www.drupal.org/project/features_package_settings">https://www.drupal.org/project/features_package_settings</a></li>
+  <li><a href="https://www.drupal.org/node/2466975">https://www.drupal.org/node/2466975</a></li>
+</ul>
+
+<p>Like it? Show support in the issue queue:</p>
+
+<ul>
+  <li><a href="https://www.drupal.org/node/2466975">https://www.drupal.org/node/2466975</a></li>
+  <li><a href="https://www.drupal.org/node/2471961">https://www.drupal.org/node/2471961</a></li>
+</ul>
