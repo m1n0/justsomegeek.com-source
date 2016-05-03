@@ -1,7 +1,7 @@
 ---
-title: OS X ad-hoc batch resize images
+title: How to&#58; OS X ad-hoc batch resize images
 date: 2016-05-03 19:12 UTC
-tags: os x, images, resizing, photography
+tags: how-to, os x, images, resizing, photography
 layout: post
 renderer_options:
   tables: true
