@@ -3,6 +3,11 @@
 
 
 // Overwrite some styles from casper.css
+body {
+  font-size: 1.7rem;
+  line-height: 1.65em;
+}
+
 pre {
   background: transparent;
   border-style: none;
@@ -15,6 +20,7 @@ td.gutter {
 
 .code pre {
   white-space: pre-wrap;
+  font-size: 0.75em;
 }
 
 #data > div {
