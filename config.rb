@@ -39,11 +39,10 @@ set :casper, {
   },
   author: {
     name: 'm1n0',
-    bio: 'm1n0 is a web dev passionate about technology, ' \
-         'music and reading.',
+    bio: 'm1n0 is a software engineer passionate about technology, ' \
+         'machine learning, music and reading.',
     location: nil, # Optional
     website: 'http://sk.linkedin.com/in/milanlukac', # Optional
-    dorg: 'https://www.drupal.org/u/m1n0', # Optional
     github: 'https://github.com/m1n0', # Optional
     gravatar_email: 'mino.lukac@gmail.com' # Optional
   }
