@@ -7,7 +7,7 @@ renderer_options:
   tables: true
 published: true
 ---
-I like to use [Postman](getpostman.com) when developing REST APIs. It allows me
+I like to use [Postman](http://getpostman.com) when developing REST APIs. It allows me
 to save, group and share different requests, prepare different payloads to test different
 scenarios and it helps with manual (some people use it even for automatic) testing.
 Furthermore, securing APIs with OAuth2 is very common - it's secure and practical.
