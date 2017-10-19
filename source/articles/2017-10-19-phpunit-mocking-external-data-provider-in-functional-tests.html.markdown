@@ -72,10 +72,11 @@ public function myActionTest(): void
         $this->client = static::createClient(static::getKernelOptions());
     }
 
-    $this->client->getContainer()->set(''my_external_data_provider', $loaderMock);
+    $this->client->getContainer()->set('my_external_data_provider', $loaderMock);
 
-    $this->setUpRequest('/my/resource/1');
-    $this->assertSame(200, $this->response->getStatusCode());
+    $this->client->request('GET', '/my/resource/1');
+    $responseData = json_decode($this->client->getResponse()->getContent(), true);
+
     $this->assertSame([
         'data' => [
             'something',
@@ -84,13 +85,17 @@ public function myActionTest(): void
         'jsonapi' => [
             'version' => '1.0',
         ]
-    ], $this->responseData);
+    ], $responseData);
 }
 ~~~
 
-And **that's it, simple mocking**. This test checks that when request is made to
+And **that's it, simple mocking**.
+
+This test checks that when request is made to
 `/my/resource/1`, the `load` function of the `externalDataLoader` is
 called exactly once, with arguments `external/path` and `1`,
-and that it returns an array with specified elements.
+and that it returns an array with specified elements. This is done by replacing
+the `externalDataLoader` (`my_external_data_provider` service) in DI container
+with a mocked object.
 
 **Happy testing!**
