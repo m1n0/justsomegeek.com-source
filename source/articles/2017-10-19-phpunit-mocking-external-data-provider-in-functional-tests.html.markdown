@@ -89,13 +89,15 @@ public function myActionTest(): void
 }
 ~~~
 
-And **that's it, simple mocking**.
+The first part mocks the `externalDataLoader` (`my_external_data_provider` service)
+and its `load` method with parameters and return value, and replaces it
+in the DI container.
 
-This test checks that when request is made to
-`/my/resource/1`, the `load` function of the `externalDataLoader` is
-called exactly once, with arguments `external/path` and `1`,
-and that it returns an array with specified elements. This is done by replacing
-the `externalDataLoader` (`my_external_data_provider` service) in DI container
-with a mocked object.
+The second part makes the
+actual request to `/my/resource/1`, and this is where the *magic* happens -
+mocked `externalDataLoader` is actually used, the parameters are checked and mocked
+return value is returned by the `load` method.
+
+And **that's it, simple mocking**.
 
 **Happy testing!**
